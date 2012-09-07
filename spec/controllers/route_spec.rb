@@ -1,7 +1,7 @@
 require File.expand_path('../../spec_helper', __FILE__)
 
 # Target file
-require File.expand_path("#{App.root}/server", __FILE__)
+require "#{App.root}/server"
 
 describe 'The HelloWorld App' do
   describe :not_found do

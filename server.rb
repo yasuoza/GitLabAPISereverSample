@@ -9,7 +9,7 @@ post '/gitlab/twtr' do
   # Filter via ip address
   # If you want to filter with remote IP
   # Set allowed ip in config/settings.rb
-  return nil unless request.ip == settings.allowed_ip
+  return 403 unless request.ip == settings.allowed_ip
 
   data = JSON.parse(request.body.read)
   update_count = 0
@@ -22,6 +22,10 @@ end
 
 not_found do
   'This is nowhere to be found'
+end
+
+error 403 do
+  'Access forbidden'
 end
 
 private

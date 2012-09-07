@@ -32,7 +32,8 @@ describe 'The HelloWorld App' do
           post '/gitlab/twtr', File.read(File.expand_path('../../params.json', __FILE__)), 'REMOTE_ADDR' => '255.255.255.255'
         end
 
-        its(:body) { should eq "" }
+        its(:status) { should eq 403 }
+        its(:body) { should eq "Access forbidden" }
       end
 
       context 'valid IP' do

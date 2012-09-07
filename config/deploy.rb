@@ -17,9 +17,11 @@ role :web, "application_server.com"                   # Your HTTP server, Apache
 role :app, "application_server.com"                   # This may be the same as your `Web` server
 role :db,  "application_server.com", :primary => true # This is where Rails migrations will run
 
-# If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start do
-    run "cd #{current_path} && rackup config.ru -E #{app_env} -p #{app_port} -D"
+    run "cd #{current_path} && rackup config.ru -E #{app_env} -p #{app_port} -D -P #{shared_path}/pids/rack.pid"
+  end
+  task :stop do
+    run "cat #{shared_path}/pids/rack.pid | xargs kill -s SIGINT"
   end
 end

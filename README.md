@@ -25,6 +25,7 @@ $ ruby server.rb
 Run as a daemonized server
 
 ```shell
+$ mkdir log
 $ rackup config.ru -D
 ```
 

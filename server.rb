@@ -28,7 +28,6 @@ error 403 do
   'Access forbidden'
 end
 
-private
 def tweet(text)
   return unless production?
   Twitter.update(text)

@@ -48,3 +48,6 @@ $ cap deploy:update_code
 $ cap deploy:create_symlink
 $ cap deploy:start
 ```
+
+## LICENSE
+MIT
